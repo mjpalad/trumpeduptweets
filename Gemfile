@@ -20,6 +20,9 @@ gem "sprockets", ">= 3.0.0"
 gem "suspenders"
 gem "title"
 gem "uglifier"
+gem "activeadmin", github: "activeadmin"
+gem "inherited_resources", github: "activeadmin/inherited_resources"
+gem "devise"
 
 group :development do
   gem "listen"
