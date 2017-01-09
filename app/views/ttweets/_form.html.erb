@@ -1,0 +1,22 @@
+<%= form_for(ttweet) do |f| %>
+  <% if ttweet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ttweet.errors.count, "error") %> prohibited this ttweet from being saved:</h2>
+
+      <ul>
+      <% ttweet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Type your tweet here" %><br/>
+    <%= f.text_area :tweet_body, {:rows => 10, :cols => 50} %>
+  </div>
+  <br/><br/>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
