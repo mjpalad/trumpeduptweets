@@ -23,6 +23,7 @@ gem "uglifier"
 gem "activeadmin", github: "activeadmin"
 gem "inherited_resources", github: "activeadmin/inherited_resources"
 gem "devise"
+gem "watson-api-client"
 
 group :development do
   gem "listen"
