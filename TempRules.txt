@@ -1,8 +1,8 @@
 Random Thoughts for Rules
 -------------------------
 - If person and negative, add sentiment-appropriate adjectives - COMPLETE
-- All-caps for any verb in a sentence
-- If positive or negative sentiment for entire tweet, add !!! to end
+- All-caps for any verb in a sentence - COMPLETE
+- If positive or negative sentiment for entire tweet, add !!! to end - COMPLETE
 - If no matches, replace the whole sentence with a random Trump-ism
 - Change any facility location to Trump Tower or The White House
 - Change any instance of "DC" to "the swamp"
