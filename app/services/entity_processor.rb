@@ -8,29 +8,27 @@ class EntityProcessor
 
   ALL_PEOPLE_QUALIFIERS = GOOD_PEOPLE_QUALIFIERS | BAD_PEOPLE_QUALIFIERS
 
-  def self.process(entity_result, text_to_process)
+  def self.process(entity_result, ttweet)
     entity_result["entities"].each do |entity|
       if entity["type"] == "Person"
         if entity["sentiment"].present? && entity["sentiment"]["type"] == "positive"
           qualifier = GOOD_PEOPLE_QUALIFIERS.sample
-          text_to_process = text_to_process.gsub entity["text"], "#{qualifier} #{entity["text"]}"
-          text_to_process += " *person entity with positive sentiment: added #{qualifier} before name*"
+          ttweet.ttweet_body = ttweet.ttweet_body.gsub entity["text"], "#{qualifier} #{entity["text"]}"
+          ttweet.executed_rules << "person entity with positive sentiment: added #{qualifier} before name"
         elsif entity["sentiment"].present? && entity["sentiment"]["type"] == "negative"
           qualifier = BAD_PEOPLE_QUALIFIERS.sample
-          text_to_process = text_to_process.gsub entity["text"], "#{qualifier} #{entity["text"]}"
-          text_to_process += " *person entity with negative sentiment: added #{qualifier} before name*"
+          ttweet.ttweet_body = ttweet.ttweet_body.gsub entity["text"], "#{qualifier} #{entity["text"]}"
+          ttweet.executed_rules << "person entity with negative sentiment: added #{qualifier} before name"
         else
           qualifier = ALL_PEOPLE_QUALIFIERS.sample
-          text_to_process = text_to_process.gsub entity["text"], "#{qualifier} #{entity["text"]}"
-          text_to_process += " *person entity with neutral sentiment: added #{qualifier} before name*"
+          ttweet.ttweet_body = ttweet.ttweet_body.gsub entity["text"], "#{qualifier} #{entity["text"]}"
+          ttweet.executed_rules << "person entity with neutral sentiment: added #{qualifier} before name"
         end
-      elsif entity["type"] == "Person"
-
       end
 
     end
 
-    return text_to_process
+    return
   end
 
 end

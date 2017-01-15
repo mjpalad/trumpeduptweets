@@ -1,16 +1,16 @@
 class SentimentProcessor
 
-  def self.process(sentiment_result, text_to_process)
+  def self.process(sentiment_result, ttweet)
 
     if sentiment_result["docSentiment"].present? && sentiment_result["docSentiment"]["type"].present?
       sentiment = sentiment_result["docSentiment"]["type"]
       if sentiment == "positive" || sentiment == "negative"
-        text_to_process = text_to_process.gsub(/[[:punct:]]+$/,"") + "!!!"
-        text_to_process += " *replaced end punctuation with exclamation marks due to #{sentiment} sentiment of entire tweet*"
+        ttweet.ttweet_body = ttweet.ttweet_body.gsub(/[[:punct:]]+$/,"") + "!!!"
+        ttweet.executed_rules << "replaced end punctuation with exclamation marks due to #{sentiment} sentiment of entire tweet"
       end
     end
 
-    return text_to_process
+    return
   end
 
 end

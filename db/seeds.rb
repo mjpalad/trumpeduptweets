@@ -28,3 +28,5 @@ VocabularyWord.create!(vocabulary_list_id: BAD_PEOPLE_QUALIFIERS.id, word:"racis
 VocabularyWord.create!(vocabulary_list_id: BAD_PEOPLE_QUALIFIERS.id, word:"clown")
 VocabularyWord.create!(vocabulary_list_id: BAD_PEOPLE_QUALIFIERS.id, word:"disgusting")
 VocabularyWord.create!(vocabulary_list_id: BAD_PEOPLE_QUALIFIERS.id, word:"overrated")
+
+Replacement.create!(name: "Media", words_to_find: ["media","news"], words_to_substitute: ["FAKE NEWS","LYING NEWS"])

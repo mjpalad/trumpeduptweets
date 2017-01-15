@@ -1,17 +1,17 @@
 class RelationsProcessor
 
-  def self.process(relations_result, text_to_process)
+  def self.process(relations_result, ttweet)
 
     if relations_result["relations"].present?
       relation = relations_result["relations"].first
 
       if relation["action"].present? && relation["action"]["text"].present?
-        text_to_process = text_to_process.gsub relation["action"]["text"], relation["action"]["text"].upcase
-        text_to_process += " *upper-cased verb*"
+        ttweet.ttweet_body = ttweet.ttweet_body.gsub relation["action"]["text"], relation["action"]["text"].upcase
+        ttweet.executed_rules << "upper-cased verb"
       end
     end
 
-    return text_to_process
+    return
   end
 
 end

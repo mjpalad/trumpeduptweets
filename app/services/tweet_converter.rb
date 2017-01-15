@@ -1,18 +1,21 @@
 class TweetConverter
 
-  def self.convert(tweet)
-    converted_tweet = tweet
+  def self.convert(ttweet)
 
-    entity_result = AlchemyLanguageWrapper.TextGetRankedNamedEntities(converted_tweet)
-    converted_tweet = EntityProcessor.process(entity_result, converted_tweet)
+    ttweet.ttweet_body = ttweet.tweet_body
 
-    sentiment_result = AlchemyLanguageWrapper.TextGetTextSentiment(converted_tweet)
-    converted_tweet = SentimentProcessor.process(sentiment_result, converted_tweet)
+    entity_result = AlchemyLanguageWrapper.TextGetRankedNamedEntities(ttweet.ttweet_body)
+    EntityProcessor.process(entity_result, ttweet)
 
-    relations_result = AlchemyLanguageWrapper.TextGetRelations(converted_tweet)
-    converted_tweet = RelationsProcessor.process(relations_result, converted_tweet)
+    sentiment_result = AlchemyLanguageWrapper.TextGetTextSentiment(ttweet.ttweet_body)
+    SentimentProcessor.process(sentiment_result, ttweet)
 
-    return converted_tweet
+    relations_result = AlchemyLanguageWrapper.TextGetRelations(ttweet.ttweet_body)
+    RelationsProcessor.process(relations_result, ttweet)
+
+    ReplacementProcessor.process(ttweet)
+
+    return ttweet
   end
 
 end

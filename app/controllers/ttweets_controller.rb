@@ -13,7 +13,7 @@ class TtweetsController < ApplicationController
   def create
     @ttweet = Ttweet.new(ttweet_params)
 
-    @ttweet.ttweet_body = TweetConverter.convert(@ttweet.tweet_body)
+    @ttweet = TweetConverter.convert(@ttweet)
 
     if @ttweet.save
       redirect_to @ttweet, notice: 'Ttweet was successfully created.'
