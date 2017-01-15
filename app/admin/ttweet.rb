@@ -6,6 +6,7 @@ ActiveAdmin.register Ttweet do
 
   index do
     selectable_column
+    id_column
     column "Original Tweet", :tweet_body
     column "Trumped Up Tweet", :ttweet_body
     column "Created At", :created_at
