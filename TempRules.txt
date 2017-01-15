@@ -1,0 +1,18 @@
+Random Thoughts for Rules
+-------------------------
+- If person and negative, add sentiment-appropriate adjectives - COMPLETE
+- All-caps for any verb in a sentence
+- If positive or negative sentiment for entire tweet, add !!! to end
+- If no matches, replace the whole sentence with a random Trump-ism
+- Change any facility location to Trump Tower or The White House
+- Change any instance of "DC" to "the swamp"
+- Change any instance of media, etc. to "FAKE NEWS"
+- Change any positive adjectives to series of phrases such as "fantastic"
+- Change any negative adjectives to series of phrases such as "so sad"
+- Replace "Trump" with @realDonaldTrump handle
+
+FEATURES
+--------
+- Must be 140 characters
+- Ask for suggestions to be submitted
+- If actual Trump tweet, show confetti
