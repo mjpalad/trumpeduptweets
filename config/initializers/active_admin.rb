@@ -145,7 +145,7 @@ ActiveAdmin.setup do |config|
   # You can add before, after and around filters to all of your
   # Active Admin resources and pages from here.
   #
-  # config.before_action :do_something_awesome
+  config.before_filter :set_admin_timezone
 
   # == Localize Date/Time Format
   #
@@ -153,7 +153,7 @@ ActiveAdmin.setup do |config|
   # To understand how to localize your app with I18n, read more at
   # https://github.com/svenfuchs/i18n/blob/master/lib%2Fi18n%2Fbackend%2Fbase.rb#L52
   #
-  config.localize_format = :long
+  config.localize_format = "%B %d, %Y %l:%M%p"
 
   # == Setting a Favicon
   #
@@ -222,6 +222,11 @@ ActiveAdmin.setup do |config|
   #       menu.add label: "My Great Website", url: "http://www.mygreatwebsite.com", html_options: { target: :blank }
   #     end
   #   end
+  config.namespace :admin do |admin|
+    admin.build_menu do |menu|
+      menu.add label: 'Vocabulary', priority: 1
+    end
+  end
 
   # == Download Links
   #
