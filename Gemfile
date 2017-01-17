@@ -24,6 +24,7 @@ gem "activeadmin", github: "activeadmin"
 gem "inherited_resources", github: "activeadmin/inherited_resources"
 gem "devise"
 gem "watson-api-client"
+gem "twitter"
 
 group :development do
   gem "listen"

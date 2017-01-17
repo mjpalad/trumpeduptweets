@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Your twitter handle:</strong>
+  <%= @timeline.twitter_handle %>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Original Tweet</th>
+      <th>Converted Tweet</th>
+      <th>Rules Applied</th>
+    </tr>
+  </thead>
+<% @timeline.ttweets.each do |ttweet| %>
+  <tr>
+    <td><%= ttweet.tweet_body %></td>
+    <td><%= ttweet.ttweet_body %></td>
+    <td><%= ttweet.executed_rules %></td>
+  </tr>
+<% end %>
+</table>
+
+
+<%= link_to 'Back', "/" %>
