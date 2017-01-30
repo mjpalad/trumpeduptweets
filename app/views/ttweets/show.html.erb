@@ -8,6 +8,7 @@
 <p>
   <strong>Your Trumped Up Tweet:</strong>
   <%= @ttweet.ttweet_body %>
+  <br/>
+  <img src="http://res.cloudinary.com/trumpeduptweets/image/upload/,co_rgb:FFFFFF,l_text:Verdana_200_bold_letter_spacing_14:<%="#{url_encode(@ttweet.ttweet_body)}"%>/v1485743697/donald-trump-angry-blue_jtyijq.jpg" width="600" />
 </p>
-
 <%= link_to 'Back', "/" %>
